@@ -2,7 +2,7 @@ Summary:	SBLIM CMPI Base Instrumentation package
 Summary(pl.UTF-8):	Pakiet podstawowych pomiarów SBLIM CMPI
 Name:		sblim-cmpi-base
 Version:	1.6.1
-Release:	1
+Release:	2
 License:	Eclipse Public License v1.0
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/sblim/%{name}-%{version}.tar.bz2
@@ -64,7 +64,7 @@ Statyczna biblioteka SBLIM cmpiOSBase.
 %build
 %configure
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -73,6 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/cmpi/libcmpiOSBase_*Provider.{la,a}
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
